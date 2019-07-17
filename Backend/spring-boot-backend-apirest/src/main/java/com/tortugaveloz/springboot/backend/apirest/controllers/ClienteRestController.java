@@ -206,6 +206,7 @@ public class ClienteRestController {
 	@GetMapping("/uploads/img/{nombreFoto:.+}")
 	public ResponseEntity<Resource> verFoto(@PathVariable String nombreFoto){
 		Path rutaArchivo = Paths.get("uploads").resolve(nombreFoto).toAbsolutePath();
+		log.info(rutaArchivo.toString());
 		Resource recurso = null;
 		
 		try {

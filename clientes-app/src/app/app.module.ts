@@ -11,11 +11,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './components/clientes/form.component';
 import { FormsModule } from '@angular/forms';
-import {registerLocaleData} from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDatepickerModule} from '@angular/material';
-import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import { MatDatepickerModule } from '@angular/material';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { DetalleComponent } from './components/clientes/detalle/detalle.component';
 
 
 registerLocaleData(localeEs, 'es');
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'clientes/page/:page', component: ClientesComponent },
   { path: 'clientes/form', component: FormComponent },
-  { path: 'clientes/form/:id', component: FormComponent}
+  { path: 'clientes/form/:id', component: FormComponent },
+  { path: 'clientes/ver/:id', component: DetalleComponent }
 ]
 
 @NgModule({
@@ -37,7 +39,8 @@ const routes: Routes = [
     DirectivaComponent,
     ClientesComponent,
     FormComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    DetalleComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +51,7 @@ const routes: Routes = [
     MatDatepickerModule,
     MatMomentDateModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'es'}],
+  providers: [{ provide: LOCALE_ID, useValue: 'es' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
